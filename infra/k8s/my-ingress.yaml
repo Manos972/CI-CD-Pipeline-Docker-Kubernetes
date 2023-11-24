@@ -3,7 +3,9 @@ kind: Ingress
 metadata:
   name: my-ingress-v2
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: "/$1"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.org/websocket-services: "ws-svc"
 spec:
   ingressClassName: nginx
   rules:
