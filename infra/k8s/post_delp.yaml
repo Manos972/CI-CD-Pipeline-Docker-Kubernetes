@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: posts-clusterip-srv-container
-          image: post:latest
+          image: posts:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4000
