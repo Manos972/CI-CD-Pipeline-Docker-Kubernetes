@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-srv
+  labels:
+    app: comments-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comments-srv
+  template:
+    metadata:
+      name: comments-srv
+      labels:
+        app: comments-srv
+    spec:
+      containers:
+        - name: comment-container
+          image: comments:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4001

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-clusterip-srv
+  labels:
+    app: posts-clusterip-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts-clusterip-srv
+  template:
+    metadata:
+      name: posts-clusterip-srv
+      labels:
+        app: posts-clusterip-srv
+    spec:
+      containers:
+        - name: posts-clusterip-srv-container
+          image: post:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4000

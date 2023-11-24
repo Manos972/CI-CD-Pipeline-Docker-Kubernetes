@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-srv
+  template:
+    metadata:
+      labels:
+        app: client-srv
+    spec:
+      containers:
+        - name: client-srv
+          image: client:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000

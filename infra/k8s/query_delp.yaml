@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: query-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: query-srv
+  template:
+    metadata:
+      labels:
+        app: query-srv
+    spec:
+      containers:
+        - name: querycontainer
+          image: query:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4002

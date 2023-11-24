@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-bus-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-bus-srv
+  template:
+    metadata:
+      labels:
+        app: event-bus-srv
+    spec:
+      containers:
+        - name: event-bus-container
+          image: event:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4005
