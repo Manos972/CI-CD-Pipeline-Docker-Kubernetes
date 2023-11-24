@@ -11,9 +11,11 @@ const PostList = () => {
         try {
             const res = await axios.get("http://localhost/posts");
             setPosts(res.data);
+            setError(null); // Réinitialise l'état d'erreur en cas de succès
         } catch (error) {
             console.error('Erreur Axios lors de la récupération des posts:', error.message);
             setError('Une erreur s\'est produite lors de la récupération des posts.');
+            setPosts({}); // Réinitialise les posts en cas d'erreur
         }
     };
 
@@ -37,12 +39,16 @@ const PostList = () => {
         );
     });
 
+    const noPostsMessage = (
+        <div className="alert alert-info">
+            Aucun post n'est disponible pour le moment.
+        </div>
+    );
+
     return (
         <div>
             {error && <div className="alert alert-danger">{error}</div>}
-            <div className="d-flex flex-row flex-wrap justify-content-between">
-                {renderedPosts}
-            </div>
+            {Object.keys(posts).length === 0 ? noPostsMessage : renderedPosts}
         </div>
     );
 };
