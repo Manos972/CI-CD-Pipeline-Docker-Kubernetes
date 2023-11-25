@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cicd-querycontainer
-          image: registry.gitlab.com/manos972/tp_fil_rouge/query:latest
+          image: registry.gitlab.com/manos972/tp_fil_rouge/query:v1.3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4002
