@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: moderation-container
-          image: moderation:latest
+          image: registry.gitlab.com/manos972/tp_fil_rouge/moderation:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4003
