@@ -4,9 +4,10 @@ default:
     - docker:24.0.5-dind
   before_script:
     - docker info
-
+  
 stages:          # List of stages for jobs, and their order of execution
   - build
+  - deploy
 
 build-image-job:
   stage: build
@@ -28,3 +29,12 @@ build-image-job:
     - docker push $CI_REGISTRY/manos972/tp_fil_rouge/comments:latest
     - docker push $CI_REGISTRY/manos972/tp_fil_rouge/moderation:latest
     - docker push $CI_REGISTRY/manos972/tp_fil_rouge/query:latest
+
+deploy-job:
+    image:
+      name: bitnami/kubectl:latest
+      entrypoint: ['']
+    script:
+    - kubectl config use-context test6781146/k8s-connection:k8s-connection
+    - kubectl get pods
+
