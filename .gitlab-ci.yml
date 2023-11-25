@@ -1,10 +1,7 @@
 default:
   image: docker:24.0.5
   services:
-    - docker:24.0.5-dind
-  before_script:
-    - docker info
-  
+    - docker:24.0.5-dind  
 stages:          # List of stages for jobs, and their order of execution
   - build
   - deploy
