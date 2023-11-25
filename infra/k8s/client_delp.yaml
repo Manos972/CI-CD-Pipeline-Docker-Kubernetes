@@ -13,7 +13,7 @@ spec:
         app: client-srv
     spec:
       containers:
-        - name: client-srv
+        - name: cicd_client-srv
           image: registry.gitlab.com/manos972/tp_fil_rouge/client:latest
           imagePullPolicy: IfNotPresent
           ports:

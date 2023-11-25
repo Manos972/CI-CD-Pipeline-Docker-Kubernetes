@@ -13,7 +13,7 @@ spec:
         app: moderation-srv
     spec:
       containers:
-        - name: moderation-container
+        - name: cicd_moderation-container
           image: registry.gitlab.com/manos972/tp_fil_rouge/moderation:latest
           imagePullPolicy: IfNotPresent
           ports:
