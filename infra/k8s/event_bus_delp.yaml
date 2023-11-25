@@ -18,3 +18,5 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4005
+      imagePullSecrets:
+        - name: app-secret
