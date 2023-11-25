@@ -20,3 +20,14 @@ spec:
             - containerPort: 4005
       imagePullSecrets:
         - name: app-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-srv
+spec:
+  selector:
+    app: event-bus-srv
+  ports:
+    - protocol: TCP
+      port: 4005

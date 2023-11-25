@@ -20,3 +20,16 @@ spec:
             - containerPort: 3000
       imagePullSecrets:
         - name: app-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-srv
+spec:
+  selector:
+    app: client-srv
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: NodePort

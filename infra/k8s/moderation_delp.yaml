@@ -20,3 +20,14 @@ spec:
             - containerPort: 4003
       imagePullSecrets:
         - name: app-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moderation-srv
+spec:
+  selector:
+    app: moderation-srv
+  ports:
+    - protocol: TCP
+      port: 4003

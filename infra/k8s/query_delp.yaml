@@ -20,3 +20,15 @@ spec:
             - containerPort: 4002
       imagePullSecrets:
         - name: app-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-srv
+spec:
+  selector:
+    app: query-srv
+  ports:
+    - protocol: TCP
+      port: 4002

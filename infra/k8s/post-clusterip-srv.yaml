@@ -1,3 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-clusterip-srv
+  labels:
+    app: posts-clusterip-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts-clusterip-srv
+  template:
+    metadata:
+      name: posts-clusterip-srv
+      labels:
+        app: posts-clusterip-srv
+    spec:
+      containers:
+        - name: cicd-posts-clusterip-srv-container
+          image: registry.gitlab.com/manos972/tp_fil_rouge/posts:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4000
+      imagePullSecrets:
+        - name: app-secret
+---
 apiVersion: v1
 kind: Service
 metadata:
