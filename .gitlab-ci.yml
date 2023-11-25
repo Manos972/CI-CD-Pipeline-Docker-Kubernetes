@@ -36,4 +36,6 @@ deploy-job:
     - kubectl config use-context Manos972/k8s-connection:k8s-connection
     - kubectl get pods
     - kubectl apply -f ./infra/k8s
+    - kubectl get pods
+    - kubectl get svc
 
