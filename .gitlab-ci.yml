@@ -31,10 +31,11 @@ build-image-job:
     - docker push $CI_REGISTRY/manos972/tp_fil_rouge/query:latest
 
 deploy-job:
-    image:
-      name: bitnami/kubectl:latest
-      entrypoint: ['']
-    script:
+  stage: deploy
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  script:
     - kubectl config use-context test6781146/k8s-connection:k8s-connection
     - kubectl get pods
 
