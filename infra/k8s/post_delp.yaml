@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: posts-clusterip-srv-container
-          image: posts:latest
+          image: registry.gitlab.com/manos972/tp_fil_rouge/posts:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4000
