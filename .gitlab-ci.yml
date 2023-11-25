@@ -4,7 +4,7 @@ default:
     - docker:24.0.5-dind  
 stages:          # List of stages for jobs, and their order of execution
   - build
-  - deploy
+  - deliver
 
 build-image-job:
   stage: build
@@ -15,26 +15,26 @@ build-image-job:
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/client .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/client:latest
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/client:v1 .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/client:v1
     
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/event-bus .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:latest    
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:v1 .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:v1    
     
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/posts .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/posts:latest
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/posts:v1 .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/posts:v1
 
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/comments .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/comments:latest
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/comments:v1 .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/comments:v1
 
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/moderation .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/moderation:latest
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/moderation:v1 .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/moderation:v1
 
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/query .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/query:latest  
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/query:v1 .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/query:v1  
 
-deploy-job:
-  stage: deploy
+deliver-job:
+  stage: deliver
   image:
     name: bitnami/kubectl:latest
     entrypoint: ['']
