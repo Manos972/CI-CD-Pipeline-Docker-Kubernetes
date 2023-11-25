@@ -15,9 +15,11 @@ build-image-job:
     - |
       for dir in */; do
         dir=${dir%*/} # Remove trailing slash
-        image_name="$CI_REGISTRY/manos972/tp_fil_rouge/${dir}:v1.2"
-        docker build -t $image_name ./$dir
-        docker push $image_name
+        if [ "$dir" != "infra" ]; then
+          image_name="$CI_REGISTRY/manos972/tp_fil_rouge/${dir}:v1.2"
+          docker build -t $image_name ./$dir
+          docker push $image_name
+        fi
       done
 
 deliver-job:
