@@ -1,2 +1,2 @@
-FROM docker:20.10.16-alpine3.16
+FROM node:alpine
 LABEL authors="Manos"

@@ -4,7 +4,7 @@ default:
     - docker:24.0.5-dind  
 stages:          # List of stages for jobs, and their order of execution
   - build
-  - deliver
+  - deploy
 
 build-image-job:
   stage: build
@@ -15,26 +15,17 @@ build-image-job:
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/client:v1 .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/client:v1
-    
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:v1 .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:v1    
-    
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/posts:v1 .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/posts:v1
+    # Iterate over directories and build images
+    - |
+      for dir in */; do
+        dir=${dir%*/} # Remove trailing slash
+        image_name="$CI_REGISTRY/manos972/tp_fil_rouge/${dir}:v1.1"
+        docker build -t $image_name ./$dir
+        docker push $image_name
+      done
 
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/comments:v1 .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/comments:v1
-
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/moderation:v1 .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/moderation:v1
-
-    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/query:v1 .
-    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/query:v1  
-
-deliver-job:
-  stage: deliver
+deploy-job:
+  stage: deploy
   image:
     name: bitnami/kubectl:latest
     entrypoint: ['']
