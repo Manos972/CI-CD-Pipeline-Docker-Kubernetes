@@ -33,6 +33,6 @@ deploy-job:
     name: bitnami/kubectl:latest
     entrypoint: ['']
   script:
-    - kubectl config use-context test6781146/k8s-connection:k8s-connection
+    - kubectl config use-context Manos972/k8s-connection:k8s-connection
     - kubectl get pods
 
