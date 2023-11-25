@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client-srv
-          image: client_mod:latest
+          image: registry.gitlab.com/manos972/tp_fil_rouge/client:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
