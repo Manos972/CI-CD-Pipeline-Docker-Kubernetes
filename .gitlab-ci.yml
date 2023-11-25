@@ -1,0 +1,27 @@
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - test
+  - deploy
+
+build-image-job:
+  image: docker:20.10.16
+  stage: build
+  tags:
+    - build
+  services:
+    - docker:20.10.16-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/client:latest .
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:latest .
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/posts:latest .
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/comments:latest .
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/moderation:latest .
+    - docker build -t $CI_REGISTRY/manos972/tp_fil_rouge/query:latest .
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/client:latest
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/event-bus:latest
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/posts:latest
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/comments:latest
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/moderation:latest
+    - docker push $CI_REGISTRY/manos972/tp_fil_rouge/query:latest
