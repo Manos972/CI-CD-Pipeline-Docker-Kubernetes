@@ -16,7 +16,7 @@ spec:
         app: comments-srv
     spec:
       containers:
-        - name: cicd_comment-container
+        - name: cicd-comment-container
           image: registry.gitlab.com/manos972/tp_fil_rouge/comments:latest
           imagePullPolicy: IfNotPresent
           ports:

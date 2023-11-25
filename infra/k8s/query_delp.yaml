@@ -13,7 +13,7 @@ spec:
         app: query-srv
     spec:
       containers:
-        - name: cicd_querycontainer
+        - name: cicd-querycontainer
           image: registry.gitlab.com/manos972/tp_fil_rouge/query:latest
           imagePullPolicy: IfNotPresent
           ports:

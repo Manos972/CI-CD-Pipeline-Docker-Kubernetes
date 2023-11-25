@@ -13,7 +13,7 @@ spec:
         app: event-bus-srv
     spec:
       containers:
-        - name: cicd_event-bus-container
+        - name: cicd-event-bus-container
           image: registry.gitlab.com/manos972/tp_fil_rouge/event-bus:latest
           imagePullPolicy: IfNotPresent
           ports:

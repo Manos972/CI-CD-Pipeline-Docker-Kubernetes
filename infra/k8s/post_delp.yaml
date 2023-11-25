@@ -16,7 +16,7 @@ spec:
         app: posts-clusterip-srv
     spec:
       containers:
-        - name: cicd_posts-clusterip-srv-container
+        - name: cicd-posts-clusterip-srv-container
           image: registry.gitlab.com/manos972/tp_fil_rouge/posts:latest
           imagePullPolicy: IfNotPresent
           ports:
