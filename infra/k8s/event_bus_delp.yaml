@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: event-bus-container
-          image: event_mod:latest
+          image: registry.gitlab.com/manos972/tp_fil_rouge/event-bus:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4005
