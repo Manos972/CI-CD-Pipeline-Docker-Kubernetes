@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cicd-event-bus-container
-          image: registry.gitlab.com/manos972/tp_fil_rouge/event-bus:v1.3
+          image: registry.gitlab.com/manos972/tp_fil_rouge/event-bus:v1.4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4005

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cicd-client-srv
-          image: registry.gitlab.com/manos972/tp_fil_rouge/client:v1.3
+          image: registry.gitlab.com/manos972/tp_fil_rouge/client:v1.4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: cicd-comment-container
-          image: registry.gitlab.com/manos972/tp_fil_rouge/comments:v1.3
+          image: registry.gitlab.com/manos972/tp_fil_rouge/comments:v1.4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4001
