@@ -29,8 +29,21 @@
         
         Executer la pipeline        
 
+## -------------------------------SUPPRESSION DES DEPLOY / SERVICE-----------------------------------------
 
-
+        kubectl delete service moderation-srv
+        kubectl delete service query-srv
+        kubectl delete service client-srv
+        kubectl delete service comments-srv
+        kubectl delete service posts-clusterip-srv
+        kubectl delete service moderation-srv
+        kubectl delete deployment client-srv
+        kubectl delete deployment event-bus-srv
+        kubectl delete deployment posts-clusterip-srv
+        kubectl delete deployment moderation-srv
+        kubectl delete deployment query-srv
+        kubectl delete deployment comments-srv
+        kubectl delete ingress my-ingress-v2
 ## Introduction
 
 Ce projet est une application microservices construite avec Node.js et React. Il est conçu pour être déployé sur Kubernetes.
