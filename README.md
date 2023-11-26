@@ -1,4 +1,35 @@
-# Projet fil rouge
+# Projet fil rouge 
+
+# Boss de niveau 2
+
+        Prérequis au CI/CD avec Kubernetes et Docker
+        https://docs.gitlab.com/ee/user/clusters/agent/ci_cd_workflow.html
+
+        Installation de l'agent
+        https://docs.gitlab.com/ee/user/clusters/agent/install/index.html#create-an-agent-configuration-file
+        
+        Container Registry
+        https://docs.gitlab.com/ee/user/packages/container_registry/build_and_push_images.html
+
+## ------------------------CI/CD KUBERNETES--------------------------------------
+
+        Lancer Docker et Kubernetes
+        
+        Démarrer le service Deamon via l'invite en mode Administrateur
+        
+            Get-Service -Name "com.docker.service"
+            Start-Service -Name "com.docker.service" 
+        
+        Lancer le runner
+        cd ../../../../.. 	
+        cd .\GitLab-Runner\
+        .\gitlab-runner.exe run
+        
+        Vérifier l'état du connecteur k8s-connection
+        
+        Executer la pipeline        
+
+
 
 ## Introduction
 
