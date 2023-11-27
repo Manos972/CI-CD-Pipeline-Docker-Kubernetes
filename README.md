@@ -1,4 +1,3 @@
-Bien sûr ! Intégrons ces informations au README pour le CI/CD avec Kubernetes et Docker.
 
 ---
 
