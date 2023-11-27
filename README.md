@@ -1,6 +1,4 @@
 
----
-
 # Microservice Application avec Docker et Kubernetes
 
 Bienvenue dans l'application microservice basée sur Docker et Kubernetes, un projet fil rouge construit avec Node.js et React.
