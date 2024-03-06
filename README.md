@@ -1,5 +1,5 @@
 
-# Microservice Application avec Docker et Kubernetes
+# Microservice Application avec Docker et Kubernetes avec deploiement automatiser via Pipeline CI/CD Gitlab
 
 Bienvenue dans l'application microservice basée sur Docker et Kubernetes, un projet fil rouge construit avec Node.js et React.
 
