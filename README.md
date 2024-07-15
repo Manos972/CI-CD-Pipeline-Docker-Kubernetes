@@ -150,9 +150,6 @@ Pour intégrer le CI/CD avec Kubernetes et Docker, suivez les étapes ci-dessous
     kubectl delete deployment query-srv
     kubectl delete deployment comments-srv
     kubectl delete ingress my-ingress-v
-
-2
-
 ```
 
 ---
